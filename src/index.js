@@ -1,18 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import "./App.css";
+// import App from "./App.css";
 import * as serviceWorker from "./serviceWorker";
-import BlogSuspense from "./components/Suspense/BlogSuspense";
-import Login from "./components/Login/Login";
-import Signup from "./components/Signup/Signup";
-import Notifications from "./components/Notifications/Notifications";
-import Blogs from "./components/Blogs/Blogs";
-import Channel from "./components/Channel/Channel";
-
+import Routes from "./Routes";
 ReactDOM.render(
   <React.StrictMode>
-    <Channel />
+    <Routes />
   </React.StrictMode>,
   document.getElementById("root")
 );
