@@ -43,6 +43,18 @@ body {
   border-radius: 50%;
 }
 
+.rotate-anticlock-icon {
+  transform: rotate(-180deg);
+  transition: 0.5s ease-in;
+}
+.navbar-toggler:focus,
+:active {
+  outline: none !important;
+}
+.rotate-clock-icon {
+  transform: rotate(0deg);
+  transition: 0.5s ease-in;
+}
 .nav-link {
   /* color: black !important; */
   cursor: pointer !important;
@@ -54,6 +66,14 @@ body {
   transition: 0.2s ease-in;
   border-radius: 10px;
 }
+
+.active {
+  background-color: #d5dfe5;
+  color: black !important;
+  transition: 0.2s ease-in;
+  border-radius: 10px;
+}
+
 .nav-item:hover .nav-link {
   color: black !important;
 }
@@ -102,6 +122,11 @@ body {
   color: #493075;
 }
 
+@media only screen and (max-width: 998px) {
+  .first-link {
+    margin-top: 17px;
+  }
+}
 /* blog suspense css */
 
 .blog-suspense-c {
@@ -422,8 +447,11 @@ input[type="number"]:focus,
   overflow: hidden;
   padding: 10px;
 }
+.channel-container-box-suspense {
+  height: 200px;
+}
 
-.box-content {
+.channel-container-box-content {
   width: 100%;
   padding: 0px;
 }
@@ -437,7 +465,7 @@ input[type="number"]:focus,
 
 .video-player-c {
   width: 100%;
-  height: 80vh;
+  height: 60vh;
 
   border-radius: 10px;
 }
@@ -447,7 +475,7 @@ input[type="number"]:focus,
   margin-left: 5%;
 }
 .category-video {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .left-menu-icon {
   cursor: pointer;
@@ -530,4 +558,51 @@ input[type="number"]:focus,
   100% {
     height: 0px;
   }
+}
+
+/* normal loader */
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(16, 15, 73);
+  border-color: rgb(11, 10, 87) transparent rgb(19, 46, 121) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* signout modal css */
+.signout-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.signout-modal-content {
+  margin-top: 18%;
+  border-radius: 0px;
+}
+
+.signout-modal-footer {
+  border: 0px;
+}
+
+.modal-signout-btn {
+  background-color: var(--primary);
+}
+.modal-signout-btn:hover {
+  background-color: #3a2261;
 }

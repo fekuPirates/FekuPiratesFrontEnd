@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 const Menu = (props) => {
   const [hide, setHide] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [playLists, setPlayLists] = useState([]);
   useEffect(() => {
     if (props.playLists) {
@@ -30,7 +31,7 @@ const Menu = (props) => {
                 ></i>
               </span>
             ) : null}
-            <a className="navbar-brand" href="#">
+            <Link to="/" className="navbar-brand" href="#">
               <img
                 src={require("../../assets/fekupirates.png")}
                 width="30"
@@ -40,11 +41,14 @@ const Menu = (props) => {
                 loading="lazy"
               />
               &nbsp;Feku Pirates
-            </a>
+            </Link>
           </div>
           <button
             className="navbar-toggler "
             type="button"
+            onClick={() => {
+              setMobileMenuOpen(!mobileMenuOpen);
+            }}
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
@@ -52,7 +56,11 @@ const Menu = (props) => {
             aria-label="Toggle navigation"
           >
             <i
-              className="fas fa-chevron-circle-down"
+              className={
+                !mobileMenuOpen
+                  ? "fas fa-chevron-circle-down rotate-clock-icon"
+                  : "fas fa-chevron-circle-down rotate-anticlock-icon"
+              }
               style={{
                 color: "white",
                 fontSize: "28px",
@@ -64,11 +72,11 @@ const Menu = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto text-center">
               <li
-                className="nav-item"
+                className="nav-item first-link"
                 // data-toggle="collapse"
                 // data-target="#navbarSupportedContent"
               >
-                <NavLink to="/" className="nav-link">
+                <NavLink to="/" exact={true} className="nav-link">
                   Blogs
                 </NavLink>
               </li>
@@ -95,24 +103,76 @@ const Menu = (props) => {
                   </NavLink>
                 </li>
 
-                {/* <li
-                  className="nav-item "
+                <li className="nav-item ">
+                  <NavLink to="/login" className="nav-link">
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item ">
+                  <NavLink to="/register" className="nav-link">
+                    Register
+                  </NavLink>
+                </li>
+                <li className="nav-item ">
+                  <NavLink to="/profile" className="nav-link">
+                    <i className="fas fa-user"></i>
+                  </NavLink>
+                </li>
+                <li
+                  class="nav-item "
                   data-toggle="modal"
                   data-target="#exampleModal"
                 >
-                  <a className="nav-link">Signout </a>
-                </li> */}
-                {/* <li className="nav-item ">
-                  <a className="nav-link"   data-toggle="collapse"
-                     data-target=".navbar-collapse.show">
-                    <i className="fas fa-user"></i>{" "}
-                  </a>
-                </li> */}
+                  <a class="nav-link">Signout </a>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* //signout modal */}
+
+      <div
+        className="modal fade signout-modal-overlay"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content signout-modal-content">
+            <div>
+              <div className="container text-center">
+                <p className="lead mt-3">
+                  <b>Are you sure?</b>
+                </p>
+              </div>
+            </div>
+            <div className="modal-footer signout-modal-footer">
+              <button
+                type="button"
+                className="btn btn-danger btn-c"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                data-dismiss="modal"
+                onClick={() => {
+                  props.history.replace("/");
+                }}
+                className="btn btn-primary btn-c modal-signout-btn"
+              >
+                Signout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* left menu */}
 
       <div

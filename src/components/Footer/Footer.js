@@ -15,8 +15,7 @@ const Footer = () => {
                 src={require("../../assets/fekupirates.png")}
                 alt=""
               />
-
-              <p>Get updated around yourself</p>
+              <p className="mt-1">keep update yourself</p>
             </div>
 
             <hr className="clearfix w-100 d-md-none pb-3" />
@@ -25,16 +24,24 @@ const Footer = () => {
 
               <ul className="list-unstyled">
                 <li>
-                  <i className="fab fa-facebook-f"></i>
-                  <a href="#!">Facebook</a>
+                  <i className="fab fa-youtube mx-2"></i>
+                  <a
+                    className="text-white"
+                    href="https://www.youtube.com/channel/UCZnV0DQKd5aFIwH-TQifxXg"
+                    target="_blank"
+                  >
+                    youtube
+                  </a>
                 </li>
-
                 <li>
-                  <i className="fab fa-youtube"></i> <a href="#!">youtube</a>
-                </li>
-                <li>
-                  <i className="fab fa-pinterest"></i>{" "}
-                  <a href="#!">pinterest</a>
+                  <i className="fab fa-pinterest mx-2"></i>
+                  <a
+                    className="text-white"
+                    href="https://www.pinterest.de/fekupirates/"
+                    target="_blank"
+                  >
+                    pinterest
+                  </a>
                 </li>
               </ul>
             </div>
@@ -43,7 +50,12 @@ const Footer = () => {
 
         <div className="footer-copyright text-center py-3">
           © 2020 Copyright: Feku Pirates
-          <a href="#"> fekupirates@gmail.com</a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=fekupirates@gmail.com"
+            target="_blank"
+          >
+            fekupirates@gmail.com
+          </a>
         </div>
       </footer>
     </>

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Menu from "../../components/Menu/Menu";
 import Footer from "../../components/Footer/Footer";
 
 const Blogs = (props) => {
+  const [topBlogs, setTopBlogs] = useState([]);
+  const [sideBlogs, setSideBlogs] = useState([]);
+  const [middleBlogs, setMiddleBlogs] = useState([]);
   return (
     <>
       <Menu {...props} leftMenu={false} />
@@ -22,7 +25,6 @@ const Blogs = (props) => {
         <br />
         <br />
         <br />
-
         <div className="container">
           <div className="row">
             <div className="col-sm-4">
